@@ -32,7 +32,6 @@ export class CartComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.cartArray = this.fb.array([])
     this.form = this.createForm()
-    console.log(this.cart123.items.length)
   }
 
   private createForm(): FormGroup {
