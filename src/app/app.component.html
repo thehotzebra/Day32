@@ -1,0 +1,14 @@
+<app-inventory [item]="inventoryItem" (onAddItem)="addtoCart($event)"></app-inventory>
+
+
+<app-cart [cart123] = "cart" (formSubmitted)="formSubmission($event)">
+
+    
+</app-cart>
+<br>
+<hr>
+<br>
+<div *ngIf="formSubmitted === true">
+    Thank you for your purchase.
+    Your cart id is {{this.cart.id}}.
+</div>

@@ -1,0 +1,49 @@
+<h2 style="color: blueviolet;"> Welcome to shop.</h2>
+<h3>What would you like to get today?</h3>
+
+<div>
+<table>
+    <tr>
+        <td>
+            <button><img src="/assets/fruits/{{item[0].name}}.png" (click) = "onSelectItem(0)"></button>
+        </td>
+        <td>
+            <button><img src="/assets/fruits/{{item[1].name}}.png" (click) = "onSelectItem(1)"></button>
+        </td>
+        <td>
+            <button><img src="/assets/fruits/{{item[2].name}}.png" (click) = "onSelectItem(2)"></button>
+        </td>
+    </tr>
+</table>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="processForm()">
+    <table>
+            <tr>
+                <td>
+                    <label>Name: </label>
+                </td>
+                <td>
+                    <input type="text" formControlName="name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Price: </label>
+                </td>
+                <td>
+                    <input type="text" formControlName="price">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Quantity: </label>
+                </td>
+                <td>
+                    <input type="number" formControlName="quantity">
+                </td>
+            </tr>
+    </table>
+    <br>
+    <button type="submit" [disabled]="form.invalid">Add</button>
+</form>

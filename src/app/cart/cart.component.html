@@ -1,0 +1,64 @@
+<br>
+<hr>
+<h2>Cart</h2>
+
+
+
+<form [formGroup]="form" (ngSubmit)= "processForm()" *ngIf="cart123 !== null"> 
+    <tr>
+        <td>
+            <label>Name: </label>
+        </td>
+        <td>
+            <input type="text" formControlName="name">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Address: </label>
+        </td>
+        <td>
+            <input type="text" formControlName="address">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Delivery: </label>
+        </td>
+        <td>
+            <input type="radio" value="AM" id="AM" formControlName="delivery">
+            <label>AM</label>
+            <input type="radio" value="PM" id="PM"  formControlName="delivery" checked>
+            <label>PM</label>
+        </td>
+    </tr>
+    <br>
+    <br>
+
+    <table border="1">
+        <thead>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </thead>
+
+        <div *ngIf="cart123 == null ">
+            <p>Your cart is empty.</p>
+        </div>
+        
+        <tbody formArrayName="items">
+            <tr *ngFor = "let row of cartArray.controls; let i = index" [formGroupName]="i">
+                <td><input type="text" readonly formControlName="name"></td>
+                <td><input type="text" readonly formControlName="price"></td>
+                <td><input type="text" readonly formControlName="quantity"></td>
+                <td><input type="text" readonly formControlName="total"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <button type="submit" [disabled]="form.invalid">Cart Out</button>
+    <br>
+    
+</form>
+
